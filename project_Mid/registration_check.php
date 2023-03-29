@@ -143,6 +143,10 @@ session_start();
                   header('location:registration.php');
                 }
               } else {
+                if($status==="seller"){
+                $sql2="INSERT INTO balance_sheet(username,total_sale,withdraw) VALUES ('$username',0,0)";
+                $result2 = mysqli_query($con, $sql2);
+                }
                 header('location:login.php');
               }
          }

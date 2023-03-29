@@ -62,6 +62,9 @@ a{
                 <form action="update_page.php" method="post" novalidate>
                 <p class="up"><input type="submit" value="Update profile" style="color: green"></p>
                 </form>
+                <form action="change_password.php" method="post" novalidate>
+                <p class="up"><input type="submit" value="Change Password" style="color: green"></p>
+                </form>
                 
                 
             </td>

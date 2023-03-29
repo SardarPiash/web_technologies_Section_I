@@ -35,21 +35,20 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $error = true;
     }
 
-    if ($error) {
-        if ($current_password === $new_password) {
-            $_SESSION['error_password_err'] = '<b style="color:red">*Current and new passwords cannot be the same.</b>';
+    
+        if ($current_password === $new_password || $current_password === $confirm_password) {
+            $_SESSION['error_password_err'] = '<b style="color:red">*Current, New and Confirm passwords cannot be the same.</b>';
             $flag = false;
-        } elseif ($confirm_password !== $new_password) {
+        }else {
+            $_SESSION['error_password_err'] = "";
+        }
+        if ($confirm_password !== $new_password) {
             $_SESSION['error1_password_err'] = '<b style="color:red">*New and confirm passwords must be the same.</b>';
             $flag = false;
-        } elseif ($current_password === $confirm_password) {
-            $_SESSION['error1_password_err'] = '<b style="color:red">*Current and confirm passwords cannot be the same.</b>';
-            $flag = false;
-        } else {
-            $_SESSION['error_password_err'] = "";
+        }else {
             $_SESSION['error1_password_err'] = "";
         }
-    }
+    
 
     if ($flag === true) {
         // connect to database
@@ -69,22 +68,26 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $_SESSION['password'] = $row["password"];
+                //$_SESSION['password'] = $row["password"];
 
-                if ($_SESSION['password'] === $confirm_password) {
-                    $sql1 = "UPDATE registration SET password='$new_password' WHERE username='$username'";
+                if ($row["password"] === $current_password) {
+                    $sql1 = "UPDATE registration SET password='$confirm_password' WHERE username='$username'";
                     $result1 = mysqli_query($con, $sql1);
 
                     if ($result1) {
                         $_SESSION['password_change_success'] = '<b style="color:green">*Password changed successfully.</b>';
+                        unset($_SESSION['current_password']);
+                        unset($_SESSION['new_password_err']);
+                        unset($_SESSION['new_password']);
                         header('location: change_password.php');
                     } else {
                         header('location: change_password.php');
                     }
                 } else {
+                    $_SESSION['error2_password_err'] = '<b style="color:red">*Current password did not matched with your old password.</b>';
                     header('location: change_password.php');
                 }
-            }echo "Hlw";
+            }
         } else {
             header('location: change_password.php');
         }

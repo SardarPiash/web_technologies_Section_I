@@ -16,7 +16,19 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
         if($flag){
             if($otp_match===$_SESSION['send_otp']){
                 $_SESSION['payment_success']='<b style="color:red;align:center">* Withdraw Success!</b>';
-                $_SESSION['withdraw_ammount_final']=$_SESSION['withdraw_ammount'];
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "project";
+                $con = mysqli_connect($servername, $username, $password, $dbname);
+                $sql = "SELECT * FROM balance_sheet WHERE username='{$_SESSION['username']}'";
+                $result= mysqli_query($con, $sql);
+                while($row = mysqli_fetch_assoc($result)) {
+                    $withdraw=$row['withdraw'];
+            }
+                $withdraw += $_SESSION['withdraw_ammount'];
+                $sql2 = "UPDATE balance_sheet SET withdraw = $withdraw WHERE username = '{$_SESSION['username']}'";
+                $result2= mysqli_query($con, $sql2);
                 ///Otp should be searched in database here.....
                 header('location:payment_processing.php');
             }

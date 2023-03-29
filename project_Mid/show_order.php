@@ -29,6 +29,7 @@
             </tr>
             <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    if(is_null($row['order_decision'])){
                     echo "<tr>";
                     echo "<td class='mid'><b>" . $row['product_name'] . "</b></td>";
                     echo "<td class='mid'><img src='uploads/" . $row['photo_id'] . "' width='100' height='100'></td>";
@@ -53,7 +54,7 @@
                     <?php
                         echo "</td>";
                         echo "</tr>";  
-                }
+                }}
             ?>
         </table>
         <?php        

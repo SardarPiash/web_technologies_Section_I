@@ -73,6 +73,13 @@ a{
                     unset($_SESSION['error1_password_err']);
                 }
             ?> <br>
+            <?php
+                if(isset($_SESSION['error2_password_err']))
+                {
+                    echo $_SESSION['error2_password_err'];
+                    unset($_SESSION['error2_password_err']);
+                }
+            ?><br>
             <fieldset class="tablt"><legend><h3>Change Your Password</h3></legend>
             <table>
                 <tr>
@@ -86,7 +93,13 @@ a{
                             }
                         ?> <br>
                         <label for="current_password">Current Password:</label>
-                        <input type="password" id="current_password" name="current_password" placeholder="Enter current_password..">
+                        <input type="password" value="<?php
+                            if(isset($_SESSION['current_password']))
+                            {
+                                echo $_SESSION['current_password'];
+                                unset($_SESSION['current_password']);
+                            }
+                        ?>" id="current_password" name="current_password" placeholder="Enter current_password..">
                         
                     </th>
                 </tr>
@@ -100,7 +113,13 @@ a{
                             }
                         ?> <br>
                         <label for="new_password">New Password:</label>
-                        <input type="password" id="new_password" name="new_password" placeholder="Enter new_password..">
+                        <input type="password" value="<?php
+                            if(isset($_SESSION['new_password']))
+                            {
+                                echo $_SESSION['new_password'];
+                                unset($_SESSION['new_password']);
+                            }
+                        ?>" id="new_password" name="new_password" placeholder="Enter new_password..">
                         
                     </th>
                 </tr>
@@ -114,7 +133,13 @@ a{
                             }
                         ?> <br>
                         <label for="confirm_password">Confirm Password:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password..">
+                        <input type="password" value="<?php
+                            if(isset($_SESSION['confirm_password']))
+                            {
+                                echo $_SESSION['confirm_password'];
+                                unset($_SESSION['confirm_password']);
+                            }
+                        ?>" id="confirm_password" name="confirm_password" placeholder="confirm password..">
                         
                     </th>
                 </tr>

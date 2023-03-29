@@ -14,12 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if(empty($amount)){
      $_SESSION['withdraw_ammount_err']='<b style="color:red">*Enter amount Please.</b>';
      header('location:payment_processing.php');
-    }elseif($amount>$_SESSION['total_balance'])
+    }
+    elseif($amount>$_SESSION['total_balance'])
     {
         $_SESSION['withdraw_ammount_err']='<b style="color:red">*Amount must be smaller than total balance.</b>';
         header('location:payment_processing.php');
     }
-    elseif($amount<50 && $amount == 49)
+    elseif($amount<50)
     {
         $_SESSION['withdraw_ammount_err']='<b style="color:red">*Minimun withdraw limit 50tk.</b>';
         header('location:payment_processing.php');
