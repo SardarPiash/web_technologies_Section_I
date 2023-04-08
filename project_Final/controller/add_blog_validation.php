@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['login'])||!$_SESSION['login']===false){
+    header("location: ../view/login.php");
+}
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
 
     $blog_title=sanitize($_POST['blog_title']);

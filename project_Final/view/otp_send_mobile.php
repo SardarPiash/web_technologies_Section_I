@@ -39,9 +39,10 @@ a{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="sellercss.css" rel="stylesheet" type="text/css">
     <title>Seller Dashboard</title>
 </head>
-<?php include 'sellercss.php' ;?>
+
 <body align="center">
   <h1>Seller Dashboard</h1>
   <?php echo "Welcome,Mr. ".$_SESSION['username']; ?>

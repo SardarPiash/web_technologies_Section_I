@@ -1,10 +1,9 @@
 <?php
-// if(!isset($_SESSION['login']) || $_SESSION['login'] == false)
-// {
-//     header('location:login.php');
-//     exit;
-// }
+
 session_start();
+if(!isset($_SESSION['login'])||!$_SESSION['login']===false){
+    header("location: ../view/login.php");
+}
 if($_SERVER['REQUEST_METHOD'] === "POST") {
    $method=sanitize($_POST['method']);
    $account_number=sanitize($_POST['account_number']);

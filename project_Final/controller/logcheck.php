@@ -22,31 +22,31 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_SESSION['password_err']="";
         $_SESSION['password']=$password;
     }
-    if(isset($_POST['remember_me']) && $_POST['remember_me'] == true) {
-        $cookie_name1 = "username_cookie";
-        $cookie_value1 = $username;
-        setcookie($cookie_name1, $cookie_value1, time() + 3600, "/");
-        $cookie_name2 = "password_cookie";
-        $cookie_value2 = $password;
-        setcookie($cookie_name2, $cookie_value2, time() + 3600, "/");
-    }
     if($flag===true)
     {
         include '../model/log_check_db.php';
+
             if($_SESSION['username']===$username && $_SESSION['password']===$password){
                 $_SESSION['login']=true;
                 $_SESSION['viewseller']=true;
-                $cookie_name2="password";
-                $cookie_value2=$_SESSION['password'];
-                setcookie($cookie_name2, $cookie_value2, time() +2, "/");
-                header("location: ../view/sellerdashboard.php");
+                $token=bin2hex(random_bytes(8));
+                $_SESSION['token']=$token;
+                
+                    if(isset($_POST['remember_me']) && $_POST['remember_me'] == true) {
+                    $cookie_name="password";
+                    $cookie_value=$_SESSION['token'];
+                    setcookie($cookie_name, $token, time() +300, "/");
+                    include '../model/onetime_log.php';
+                    echo $_SESSION['ok'];
+                    }
+                    header("location: ../view/sellerdashboard.php");
+                }else{
+                    $_SESSION['log_err']='<b style="color:red">*Invalid User</b>';
+                    header("location: ../view/login.php");
+                }
             }else{
-                $_SESSION['log_err']='<b style="color:red">*Invalid User</b>';
                 header("location: ../view/login.php");
             }
-        }else{
-            header("location: ../view/login.php");
-        }
     }else{
         header("location: ../view/login.php");
     }
@@ -57,5 +57,6 @@ function sanitize($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
 ?>
 

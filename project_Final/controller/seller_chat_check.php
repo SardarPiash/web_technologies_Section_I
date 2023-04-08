@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['login'])||!$_SESSION['login']===false){
+    header("location: ../view/login.php");
+}
 if(isset($_SESSION['user_buyer'])){
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $text = sanitize($_POST['text']);

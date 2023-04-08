@@ -1,7 +1,13 @@
 <?php
 session_start();
-// include_once '../model/registration_check_db.php';
-
+if (!isset($_POST['gender'])) {
+    $_POST['gender'] = "";
+    
+}
+if (!isset($_POST['status'])) {
+    $_POST['status'] = "";
+    
+}
 if($_SERVER['REQUEST_METHOD'] === "POST")
 {
     $flag=true;
@@ -104,17 +110,15 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
         $_SESSION['address_err']="";
         $_SESSION['address']=$address;
     }
-    if($flag){
+    if($flag===true){
         include_once '../model/registration_check_db.php';
-        // registration_check_db.php::insert_registration_info();  
         if($status==="seller"){
-            // registration_check_db.php::insert_data_in_balancesheet();
-            echo "seleer";
+            include '../model/seller_table_create.php';
         }
-        
-        echo "log in";
         header("Location: ../view/login.php");
 
+    }else{
+        header('Location: ../view/registration.php');
     }
 }else{
     header('Location: ../view/registration.php');

@@ -1,18 +1,13 @@
 <?php
 session_start();
 include 'header.php';
-    $cookie_name1 = 'username_cookie';
-    $cookie_name2 = 'password_cookie';
-    if (isset($_COOKIE[$cookie_name1])) {
-        $saved_username = $_COOKIE[$cookie_name1];
-    } else {
-        $saved_username = '';
-    }
-    if (isset($_COOKIE[$cookie_name2])) {
-        $saved_password = $_COOKIE[$cookie_name2];
-    } else {
-        $saved_password = '';
-    }
+$cookie_name = "password";
+if (isset($_COOKIE[$cookie_name])) {
+    $_SESSION['token']= $_COOKIE[$cookie_name];
+
+    include '../model/direct_log_in.php';
+}
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +52,7 @@ a {
                             }
                         ?> <br>
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" value="<?php echo $saved_username; ?>" placeholder="Enter your username..">     
+                        <input type="text" id="username" name="username" value="<?php  if(isset($_SESSION['username'])){ echo $_SESSION['username']; } ?>" placeholder="Enter your username..">     
                     </th>
                 </tr>
                 <tr>
@@ -71,7 +66,7 @@ a {
                         ?> <br>
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" value="<?php 
-                        echo $saved_password; ?>"  placeholder="Enter your password..">
+                        if(isset($_SESSION['password'])){ echo $_SESSION['password']; } ?>"  placeholder="Enter your password..">
                     </th>
                 </tr>
                 <tr>

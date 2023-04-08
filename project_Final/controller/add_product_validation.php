@@ -1,9 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] == false)
-{
-    header("location:login.php");
-    exit;
+if(!isset($_SESSION['login'])||!$_SESSION['login']===false){
+    header("location: ../view/login.php");
 }
 
 
