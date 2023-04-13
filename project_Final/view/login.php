@@ -14,11 +14,12 @@ if (isset($_COOKIE[$cookie_name])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="button.css">
 	<title>Login Page</title>
 </head>
 <style>
 body{
-    background-color:#C4E8C2;
+    background-color:lightgreen;
 }
 .color{
     color:red;
@@ -77,7 +78,7 @@ a {
                 </tr>
                 <tr align="right">
                     <th>
-                        <input type="submit" value="Login">
+                        <input type="submit" value="Login" class="button" id="button">
                     </th>
                 </tr>
                 <tr align="center">

@@ -26,9 +26,7 @@ include 'header.php';
   width: 1500px;
   height: 600px;
 }
-a{
-    color:black;
-}
+
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +35,7 @@ a{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="button.css">
     <title>Seller Dashboard</title>
 </head>
 
@@ -93,10 +92,10 @@ a{
                 </table>
                 <hr color="green" size="2">
                 <form action="update_page.php" method="post" novalidate>
-                <p class="up"><input type="submit" value="Update profile" style="color: green"></p>
+                <p class="up"><input type="submit" value="Update profile" class="button"></p>
                 </form>
                 <form action="change_password.php" method="post" novalidate>
-                <p class="up"><input type="submit" value="Change Password" style="color: green"></p>
+                <p class="up"><input type="submit" value="Change Password" class="button"></p>
                 </form>
                 
                 

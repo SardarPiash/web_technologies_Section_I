@@ -45,14 +45,14 @@
                     echo "<td class='mid'>"; ?>
                     <form method="post" action="../controller/approve.php" novalidate> 
                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                    <input type='submit' value='Approve'style='color:green'>
+                    <input type='submit' value='Approve'class='button'>
                     </form>
                     <?php
                         echo "</td class='mid'>";
                         echo "<td class='mid'>";?>
                     <form method="post" action="../controller/reject.php" novalidate> 
                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                    <input type='submit' value='Reject' style='color:red'>
+                    <input type='submit' value='Reject' class='button'>
                     </form>
                     <?php
                         echo "</td>";

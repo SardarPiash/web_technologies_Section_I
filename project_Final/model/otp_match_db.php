@@ -37,6 +37,9 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
             $stmt->execute();
             $stmt->close();
             header("location: ../view/payment_processing.php");
+        }else{
+            $_SESSION['otp_error']='<b style="color:red;align:center">OTP not matched<b>';
+            header("location: ../view/otp_send_mobile.php");
         }
     }else{
         header("location: ../view/otp_send_mobile.php");

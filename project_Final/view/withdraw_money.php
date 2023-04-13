@@ -23,7 +23,7 @@
                     <form method="post" action="../controller/payment_method_validation.php" novalidate>
                     <label for="ammount">Enter Withdraw Amount </label>
                     <input type="number" name="ammount" id="ammount">
-                    <input type="submit" value="Withdraw Money" style="color: green; display: block; margin: 0 auto;">
+                    <input type="submit" value="Withdraw Money" class="button">
                 </form>
                 </th>
             </tr>

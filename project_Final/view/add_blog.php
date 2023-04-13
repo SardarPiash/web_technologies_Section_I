@@ -38,6 +38,7 @@ a{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="button.css">
     <title>Seller Dashboard</title>
 </head>
 
@@ -97,7 +98,7 @@ a{
                     </tr>
                     <tr>
                         <th>
-                            <input type="submit" value="Add Blog">
+                            <input type="submit" value="Add Blog" class="button">
                         </th>
                     </tr>
                 </form>

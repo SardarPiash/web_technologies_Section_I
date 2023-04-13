@@ -9,10 +9,11 @@ include 'header.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="button.css">
 </head>
 <style>
     body{
-        background-color:#C4E8C2;
+        background-color:lightgreen;
     }
     .color{
         color:red;
@@ -194,7 +195,7 @@ a{
             <table align="center">
                 <tr>
                     <td>
-                        <input type="submit" value="Registration" ><br>
+                        <input type="submit" value="Registration" class="button" ><br>
                         <br>
                         <?php
                             if(isset($_SESSION['user_err']))

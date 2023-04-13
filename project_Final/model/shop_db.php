@@ -42,7 +42,7 @@
             ?>
             <form method="post" action="../controller/delete_product_validation.php" novalidate> 
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <input type='submit' value='Delete' style='color:red'>
+                <input type='submit' value='Delete' class="button">
             </form>
             <?php
             echo "</td>";

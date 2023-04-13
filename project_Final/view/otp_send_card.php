@@ -40,6 +40,7 @@ a{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="button.css">
     <title>Seller Dashboard</title>
 </head>
 
@@ -68,12 +69,20 @@ a{
                                 unset($_SESSION['otp_match_err']);
 
                             }
+                            
+                            echo "<br>";
+                            if(isset($_SESSION['otp_error']))
+                            {
+                                echo $_SESSION['otp_error'];
+                                unset($_SESSION['otp_error']);
+
+                            }
 
                             ?>
                         <form action="../model/otp_match_db.php" method="post" novalidate>
                          <label for="otp_match">Enter your otp here: </label>
                          <input type="number" id="otp_match" name="otp_match"><br><br>
-                         <input type="submit" value="Submit OTP" style="color:green; align:right">
+                         <input type="submit" value="Submit OTP" class="button">
                     </form>
                         </th>
                     </tr>

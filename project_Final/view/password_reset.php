@@ -8,6 +8,7 @@ include 'header.php';
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="button.css">
 </head>
 <style>
     body{
@@ -54,7 +55,7 @@ a{
 		</tr>
 		<tr align="right">
 			<td>
-                <input type="submit" value="Reset Password" style="color:green">
+                <input type="submit" value="Reset Password" class="button">
 
 			</td>
 		</tr>
