@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     {
         include '../model/log_check_db.php';
 
-            if($_SESSION['username']===$username && $_SESSION['password']===$password){
+            if($_SESSION['username_']===$username && $_SESSION['password_']===$password){
                 $_SESSION['login']=true;
                 $_SESSION['viewseller']=true;
                 $token=bin2hex(random_bytes(8));
@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     $cookie_value=$_SESSION['token'];
                     setcookie($cookie_name, $token, time() +300, "/");
                     include '../model/onetime_log.php';
-                    echo $_SESSION['ok'];
                     }
                     header("location: ../view/sellerdashboard.php");
                 }else{

@@ -21,9 +21,9 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false)
                 ?><br>
                 <label for="sick_leave_type">Type of sick leave:</label>
                 <select name="sick_leave_type" id="sick_leave_type">
-                    <option value="">None</option>
-                    <option value="">Death leave</option>
-                    <option value="">Medical sickness</option>
+                    <option value="None">None</option>
+                    <option value="Death leave">Death leave</option>
+                    <option value="Medical sickness">Medical sickness</option>
                 </select>
             </th></tr>
             <tr>
@@ -47,3 +47,4 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] == false)
         </form>
     </fieldset></th></tr>
 </table>
+<h3 align="center"><a href="welcome_student.php">See Previous Application</a></h3>

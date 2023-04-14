@@ -16,8 +16,8 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
     $_SESSION['name']=$row["name"];
-    $_SESSION['username']=$row["username"];
-    $_SESSION['password']=$row["password"];
+    $_SESSION['username_']=$row["username"];
+    $_SESSION['password_']=$row["password"];
     }
 }else {
     header("location: ../view/login.php");
