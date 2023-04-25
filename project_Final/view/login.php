@@ -15,6 +15,7 @@ if (isset($_COOKIE[$cookie_name])) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/login.js"></script>
 	<title>Login Page</title>
 </head>
 <style>
@@ -44,7 +45,7 @@ a {
             <table>
                 <tr>
                     <th>
-                        <form method="post" action="../controller/logcheck.php" novalidate>
+                        <form method="post" action="../controller/logcheck.php" onsubmit="return validateForm()" novalidate>
                         <?php
                             if(isset($_SESSION['username_err']))
                             {

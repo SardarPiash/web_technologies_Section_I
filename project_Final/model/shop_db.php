@@ -32,6 +32,7 @@
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+
             echo "<tr>";
             echo "<td class='mid'><b>" . $row['id'] . "</b></td>";
             echo "<td class='mid'><img src='../uploads/" . $row['photo_id'] . "' width='100' height='100'></td>";
@@ -40,7 +41,7 @@
             echo "<td class='mid'>" . $row['details'] . "</td>";
             echo "<td class='mid'>";
             ?>
-            <form method="post" action="../controller/delete_product_validation.php" novalidate> 
+            <form method="post" action="../controller/delete_product_validation.php"  novalidate> 
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <input type='submit' value='Delete' class="button">
             </form>

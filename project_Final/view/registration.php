@@ -8,8 +8,9 @@ include 'header.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/registration.js"></script>
+    <title>Document</title>
 </head>
 <style>
     body{
@@ -27,7 +28,10 @@ include 'header.php';
 a{
     color:black;
 }
-
+    .error{
+       color:red;
+       font-style: italic;
+    }
 </style>
 <body align="center">
 <h1 align="center">Registration Here</h1>
@@ -35,7 +39,7 @@ a{
 <table align="center">
     <tr>
         <th>
-        <form method="post" action="../controller/registration_check.php" novalidate>
+        <form method="post" action="../controller/registration_check.php" onsubmit="return registration()" novalidate>
         <fieldset>
             <legend><h3>Registration</h3></legend>  
             <table align="center">
@@ -52,6 +56,7 @@ a{
             <label for="name">Name: </label>
             <input type="text" id="name" name="name" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name']:"" ?>" placeholder="Enter your name..">
             <?php unset($_SESSION['name']); ?> <br>
+            <p class="error" id="name-error"></p>
         </th>
     </tr>
     <tr>
@@ -67,6 +72,7 @@ a{
             <label for="username">Username: </label>
             <input type="text" id="username" name="username" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username']:"" ?>" placeholder="Enter your Username..">
             <?php unset($_SESSION['username']); ?><br>
+            <p class="error" id="username-error"></p>
         </th>
     </tr>
     <tr>
@@ -81,6 +87,7 @@ a{
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password" value="<?php echo isset($_SESSION['password']) ? $_SESSION['password']:"" ?>" placeholder="Enter Password.."> 
                 <?php unset($_SESSION['password']); ?><br>
+                <p class="error" id="password-error"></p>
         </th>
     </tr>
     <tr>
@@ -95,6 +102,7 @@ a{
                 <label for="email">Email: </label>
                 <input type="email" id="email" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email']:"" ?>" placeholder="Enter email.."> 
                 <?php unset($_SESSION['email']); ?><br>
+                <p class="error" id="email-error"></p>
         </th>
     </tr>
     <tr>
@@ -109,6 +117,7 @@ a{
                 <label for="phone">Phone Number: </label>
                 <input type="number" id="phone" name="phone" value="<?php echo isset($_SESSION['phone']) ? $_SESSION['phone']:"" ?>" placeholder="Enter phone Number.."> 
                 <?php unset($_SESSION['phone']); ?><br>
+                <p class="error" id="phone-error"></p>
         </th>
     </tr>
     <tr>
@@ -124,6 +133,7 @@ a{
                 <input type="radio" id="gender" name="gender" value="Male">Male
                 <input type="radio" id="gender" name="gender" value="Female">Female
                 <input type="radio" id="gender" name="gender" value="Others">Others <br>
+                <p class="error" id="gender-error"></p>
         </th>
     </tr>
     <tr>
@@ -144,6 +154,7 @@ a{
                     <option>B-</option>
                     <option>O+</option>
                 </select><br>
+                <p class="error" id="bloodgroup-error"></p>
         </th>
     </tr>
     <tr>
@@ -158,6 +169,7 @@ a{
                 <label for="dob">Date of birth: </label>
                 <input type="date" id="dob" name="dob" value="<?php echo isset($_SESSION['dob']) ? $_SESSION['dob']:"" ?>">
                 <?php unset($_SESSION['dob']); ?><br>
+                <p class="error" id="dob-error"></p>
         </th>
     </tr>
     <tr>
@@ -174,6 +186,7 @@ a{
                 <input type="radio" id="status" name="status" value="seller">Seller
                 <input type="radio" id="status" name="status" value="buyer">Buyer
                 <br>
+                <p class="error" id="status-error"></p>
         </th>
     </tr>
     <tr>
@@ -188,6 +201,7 @@ a{
                 <label for="address">Address: </label>
                 <textarea name="address" id="address" cols="30" rows="1" ></textarea>
                 <br>
+                <p class="error" id="address-error"></p>
         </th>
     </tr>
     <tr>

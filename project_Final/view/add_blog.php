@@ -39,6 +39,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/add_blog.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -52,7 +53,7 @@ a{
             <th class="side_panel"><a href="sellerdashboard.php">User Profile</a></th>
             <td rowspan='8'>
                <table align="center" class="tableee">
-                <form action="../controller/add_blog_validation.php" method="post" novalidate enctype="multipart/form-data">
+                <form action="../controller/add_blog_validation.php" onsubmit="return addBlog()" method="post" novalidate enctype="multipart/form-data">
                 <tr>
                     <th>ADD BLOG HERE</th>
                 </tr>    
@@ -68,6 +69,7 @@ a{
                                 ?><br>
                             <label for="blog_title">Blog Title: </label>
                             <input type="text" name="blog_title" id="blog_title">
+                            <p id="blog-error1"></p>
                         </th>
                     </tr>
                     <tr>
@@ -81,6 +83,7 @@ a{
                                 ?><br>
                             <label for="product_image">Add Image: </label>
                             <input type="file" name="product_image" id="product_image">
+                            <p id="blog-error2"></p>
                         </th>
                     </tr>
                     <tr>
@@ -94,6 +97,7 @@ a{
                                 ?><br>
                             <label for="blog">Blog: </label>
                             <textarea name="blog" id="blog" cols="30" rows="5"></textarea>
+                            <p id="blog-error3"></p>
                         </th>
                     </tr>
                     <tr>

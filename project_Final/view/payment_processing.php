@@ -33,6 +33,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/payment_processing.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -57,6 +58,10 @@ a{
                 require '../model/total_balance_db.php'; 
                 echo "<h3 class='upp'>Total Balance: ".$_SESSION['total_balance']."</h3>";
                 ?><br>  
+                <!-- storing total balance in JS variable -->
+            <script>
+            var totalBalance = <?php echo json_encode($_SESSION['total_balance']);?>
+            </script>
             <?php require '../model/ordered_list_for_payment_db.php'; ?><br><br><br>
             <hr color="green" size="2">
             <?php

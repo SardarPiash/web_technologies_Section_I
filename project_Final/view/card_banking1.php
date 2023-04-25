@@ -42,6 +42,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/card_banking.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -66,7 +67,7 @@ a{
                     <tr>
                         <th>
                         <table>
-    <form action="../controller/otp_send_card_validation.php" method="post" novalidate>
+    <form action="../controller/otp_send_card_validation.php" onsubmit="return card()" method="post" novalidate>
         <tr>
             <th> 
             <?php
@@ -96,7 +97,8 @@ a{
             ?><br>
             <label for="card_number">Card number:</label>
             <input type="number" id="card_number" name="card_number" placeholder="Enter your card number please..">
-            </th>
+            <p id="account_number_error"></p>    
+        </th>
         </tr>
         <tr>
             <th>

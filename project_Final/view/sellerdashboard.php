@@ -91,7 +91,7 @@ include 'header.php';
                     </tr>
                 </table>
                 <hr color="green" size="2">
-                <form action="update_page.php" method="post" novalidate>
+                <form action="update_page.php" method="get" novalidate >
                 <p class="up"><input type="submit" value="Update profile" class="button"></p>
                 </form>
                 <form action="change_password.php" method="post" novalidate>

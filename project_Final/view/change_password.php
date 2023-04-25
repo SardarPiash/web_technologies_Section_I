@@ -38,6 +38,8 @@ a{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/change_password.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -87,7 +89,7 @@ a{
                         <table>
                             <tr>
                                 <th>
-                                    <form method="post" action="../controller/change_password_validation.php" novalidate>
+                                    <form method="post" action="../controller/change_password_validation.php" onsubmit="return changePassword()" novalidate>
                                         <?php
                                             if(isset($_SESSION['current_password_err']))
                                             {
@@ -145,7 +147,7 @@ a{
                             </tr>
                             <tr align="right">
                                 <td>
-                                    <input type="submit" value="Reset Password" style="color:green">
+                                    <input type="submit" value="Reset Password" class="button">
                                 </td>
                             </tr>
                         </table>

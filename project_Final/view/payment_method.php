@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 if(!isset($_SESSION['login']) || $_SESSION['login'] == false)
@@ -43,6 +41,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/mobile_banking.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -72,7 +71,7 @@ a{
                     <tr>
                         <th>
                             <table>
-    <form action="../controller/otp_send_mobile_validation.php" method="post" novalidate>
+    <form action="../controller/otp_send_mobile_validation.php" onsubmit="return mobileBanking()" method="post" novalidate>
         <tr>
             <th> 
             <?php
@@ -103,6 +102,7 @@ a{
             <label for="account_number">Account number:</label>
             <input type="number" id="account_number" name="account_number" placeholder="Enter account number.." value="<?php echo $_SESSION['account_number']; ?>">
             <?php unset($_SESSION['account_number']); ?>
+            <p id="account_number_error"></p>
         </th>
         </tr>
         <tr>

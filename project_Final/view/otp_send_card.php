@@ -41,6 +41,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/otp_send_card.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -79,9 +80,11 @@ a{
                             }
 
                             ?>
-                        <form action="../model/otp_match_db.php" method="post" novalidate>
+                        <form action="../model/otp_match_db.php" method="post" onsubmit="return otpSend()" novalidate>
                          <label for="otp_match">Enter your otp here: </label>
-                         <input type="number" id="otp_match" name="otp_match"><br><br>
+                         <input type="number" id="otp_match" name="otp_match"><br>
+                         <p id="otp_error-js"></p>
+                         <br>
                          <input type="submit" value="Submit OTP" class="button">
                     </form>
                         </th>

@@ -9,6 +9,7 @@ include 'header.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/password_reset.js"></script>
 </head>
 <style>
     body{
@@ -40,7 +41,7 @@ a{
      <table>
 		<tr>
 			<th>
-	            <form method="post" action=" ../controller/password_reset_validation.php" novalidate>
+	            <form method="post" action=" ../controller/password_reset_validation.php"  novalidate onsubmit="return passwordreset()">
 				<?php
                     if(isset($_SESSION['username__err']))
                     {
@@ -50,7 +51,7 @@ a{
                 ?> <br>
 		        <label for="username">Username:</label>
 		        <input type="text" id="username" name="username" placeholder="Enter your username..">
-                
+                <p id="username-error"></p>
             </th>
 		</tr>
 		<tr align="right">

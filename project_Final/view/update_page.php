@@ -43,6 +43,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/update_page.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -59,7 +60,7 @@ a{
 <table align="center" >
     <tr>
         <th>
-        <form method="post" action="../controller/update_validation.php" novalidate>
+        <form method="post" action="../controller/update_validation.php" onsubmit="return update()" novalidate>
         <fieldset class="tablt">
             <legend><h3>Update Profile</h3></legend>  
             <table align="center">

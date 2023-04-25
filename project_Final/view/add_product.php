@@ -27,6 +27,10 @@ include 'header.php';
 a{
     color:black;
 }
+.error {
+  color: red;
+  font-weight: bold;
+}
 
 </style>
 <!DOCTYPE html>
@@ -37,6 +41,7 @@ a{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="sellercss.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="button.css">
+    <script type="text/javascript" src="js/add_product.js"></script>
     <title>Seller Dashboard</title>
 </head>
 
@@ -52,7 +57,7 @@ a{
                 <table align="center">
                     <tr>
                         <td>
-                    <form action="../controller/add_product_validation.php" method="post" enctype="multipart/form-data" novalidate>
+                    <form action="../controller/add_product_validation.php" method="post" onsubmit="return addProduct()" enctype="multipart/form-data" novalidate>
                         <fieldset class="tablt">
                             <legend>Add Product</legend>
                             <table>
@@ -67,6 +72,7 @@ a{
                                      ?><br>
                                     <label for="productname">Product Name:</label>
                                     <input type="text" name="productname" id="productname" value="" placeholder="Enter Product Name..">
+                                    <p class="error" id="productname-error"></p>
                                 </th>
                             </tr>
                             <tr>
@@ -80,6 +86,7 @@ a{
                                     ?><br>
                                 <label for="my_image">Product Image:</label>
                                 <input type="file" name="my_image" id="my_image" value="">
+                                <p class="error" id="product-image-error"></p>
                                 </th>
                             </tr>
                             <tr>
@@ -93,7 +100,7 @@ a{
                                     ?><br>
                                 <label for="productprice">Product price:</label>
                                 <input type="number" name="productprice" id="productprice" value="" placeholder="Enter Product price..">
-                                
+                                <p class="error" id="product-price-error"></p>
                                 </th>
                             </tr>
                             <tr>
@@ -107,7 +114,8 @@ a{
                                     ?><br>
                                 <label for="productdetails">Product Details:</label>
                                 <textarea name="productdetails" id="productdetails" cols="20" rows="3"></textarea>
-                                </th>
+                                <p class="error" id="product-details-error"></p>    
+                            </th>
                             </tr>
                             <tr>
                                 <td align="right">
