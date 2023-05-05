@@ -68,7 +68,7 @@ a{
                     echo $_SESSION['username_err'];
                     unset($_SESSION['username_err']);
                  }
-            ?><br>
+            ?><br><div id="username_error"></div>
             <label for="username">Username: </label>
             <input type="text" id="username" name="username" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username']:"" ?>" placeholder="Enter your Username..">
             <?php unset($_SESSION['username']); ?><br>

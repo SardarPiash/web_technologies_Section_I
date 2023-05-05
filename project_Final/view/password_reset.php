@@ -10,6 +10,7 @@ include 'header.php';
 	<title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="button.css">
     <script type="text/javascript" src="js/password_reset.js"></script>
+    <script src="js/search.js"></script>
 </head>
 <style>
     body{
@@ -33,7 +34,8 @@ a{
 
   <h1 align="center">Password Reset</h1><br>
   <hr color="red" size="5">
-
+  <h2 align="center" id="header"></h2>
+  <div id="username_error">
 <table align="center">
 	<tr>
 		<td>
@@ -41,7 +43,8 @@ a{
      <table>
 		<tr>
 			<th>
-	            <form method="post" action=" ../controller/password_reset_validation.php"  novalidate onsubmit="return passwordreset()">
+            
+	            <form method="GET" action=" ../controller/password_reset_validation.php"  novalidate onsubmit="return search(this);">
 				<?php
                     if(isset($_SESSION['username__err']))
                     {
@@ -49,9 +52,10 @@ a{
                         unset($_SESSION['username__err']);
                     }
                 ?> <br>
+                
 		        <label for="username">Username:</label>
 		        <input type="text" id="username" name="username" placeholder="Enter your username..">
-                <p id="username-error"></p>
+                
             </th>
 		</tr>
 		<tr align="right">
@@ -60,7 +64,7 @@ a{
 
 			</td>
 		</tr>
-
+    
         <tr align="center">
             <td>
             <?php
@@ -73,7 +77,7 @@ a{
             </td>
         </tr>
 	</table>
-</form></fieldset></td></tr></table>
+</form></fieldset></td></tr></table></div>
     <p align="center"><a href=" ../view/login.php">Go to Log In</a></p>
     <p align="center">Already have an account? Registration <a href=" ../view/registration.php">here</a></p>
     <br><br> 

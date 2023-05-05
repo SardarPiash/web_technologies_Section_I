@@ -1,55 +1,32 @@
-<?php
-session_start();
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $flag=true;
-    $username=sanitize($_POST['username']);
 
-    if (empty($username)) {
-        $_SESSION['username__err']='<b style="color:red">*Enter Username Frist...</b>';
-        $flag = false;
-    }else{
-        $_SESSION['username__err']="";
-        $_SESSION['username_']=$username;
-    }
-    if($flag===true)
-        {
-            //db
+<?php 
+require '../model/search.php';
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
-            $servername = "localhost";
-            $uname = "root";
-            $pass = "";
-            $dbname = "project";
-            $con = mysqli_connect($servername, $uname, $pass, $dbname);
-            $sql = "SELECT username, password FROM registration WHERE username=?";
-
-            $stmt = mysqli_prepare($con, $sql);
-            mysqli_stmt_bind_param($stmt, "s", $username);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-
-            if (mysqli_num_rows($result) > 0) {
-                while($row = mysqli_fetch_assoc($result)) {
-                    $_SESSION['username_']=$row["username"];
-                    $_SESSION['password_']=$row["password"];
-                    $_SESSION['not_show']=true;
-                    header("location: ../view/show_username_password.php");
-                }
-            } else {
-                $_SESSION['username_not_found']='<b style="color:red">*User Not found.</b>';
-                header("location: ../view/password_reset.php");
-            }
-
-            mysqli_stmt_close($stmt);
-            mysqli_close($con);
-        }else{
-            header("location: ../view/password_reset.php");
-        }
-
+	$key = sanitize($_GET['username']);
+	$res = search1($key);
+		if (mysqli_num_rows($res) == 0) {
+			echo "<b style='color: red'>Username Not Found...</b>";
+		} else {
+			while ($row = mysqli_fetch_assoc($res)) {
+				if ($key == $row['username']) {
+					echo "<table border='1px' align='center' style='border: 1px solid red'><tr><td>";
+					echo "<b>Username: </b>" . $row['username'] . "<br>";
+					echo "<b>Password: </b>" . $row['password'] . "<br><br>";
+					echo "</td></tr></table>";
+				}
+			}
+			// if ($key != $row['username']) {
+			// 	echo "<b style='color: red'>Username Not Found..</b>";
+			// }
+		}
 }
+
 function sanitize($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
 }
+
 ?>

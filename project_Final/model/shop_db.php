@@ -43,7 +43,8 @@
             ?>
             <form method="post" action="../controller/delete_product_validation.php"  novalidate> 
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                <input type='submit' value='Delete' class="button">
+                <!-- <input type='submit' value='Delete' class="button"> -->
+                <button onclick="deleteProduct(<?php echo $row['id']; ?>)" class="button">Delete</button>
             </form>
             <?php
             echo "</td>";
@@ -52,3 +53,4 @@
     }
     ?>
 </table>
+<script src="shop.js"></script>

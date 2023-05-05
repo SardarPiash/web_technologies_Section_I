@@ -58,10 +58,14 @@ a{
                 unset($_SESSION['delete_product']);
             }
             echo "</p>";
-            
+            ?>
+            <div id="shop">
+            <?php
             include '../model/shop_db.php';
             
             ?>
+            </div>
+            <script src="shop.js"></script>
                 
                 
             </td>

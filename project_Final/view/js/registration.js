@@ -78,3 +78,4 @@ function registration() {
 
     return true;
 }
+
